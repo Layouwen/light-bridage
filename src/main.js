@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import fastClick from 'fastclick'
 
-import 'normalize.css'
+import '../src/assets/styles/reset.css'
 
 Vue.config.productionTip = false
 fastClick.attach(document.body)

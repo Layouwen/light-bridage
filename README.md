@@ -1,3 +1,24 @@
-## 轻旅移动端
+# light-bridage
 
-基于Vue2.5开发的一款轻旅移动端应用。
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
+
+### Lints and fixes files
+```
+yarn lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

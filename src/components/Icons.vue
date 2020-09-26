@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOptions">
       <swiper-slide v-for="(page, index) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
           <div class="icon-img">
@@ -17,61 +17,21 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    list: Array
+  },
   data () {
     return {
-      iconList: [{
-        id: '0001',
-        imgUrl:
-          'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20209/158387fe5376294f3776d01358d6b73b.png',
-        desc: '景点门票'
-      }, {
-        id: '0002',
-        imgUrl:
-          'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20209/69e8b07cb2d438c5530aebd4c8e3abd3.png',
-        desc: '一日游'
-      }, {
-        id: '0003',
-        imgUrl:
-          'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20209/b7a5e6b1774eda4fc9e32588f1d00c94.png',
-        desc: '城市观光'
-      }, {
-        id: '0004',
-        imgUrl:
-          'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20209/5ffcd4a916f764f678263b27c1e2e00c.png',
-        desc: '踏青赏花'
-      }, {
-        id: '0005',
-        imgUrl:
-          'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20209/158387fe5376294f3776d01358d6b73b.png',
-        desc: '动植物园'
-      }, {
-        id: '0006',
-        imgUrl:
-          'https://imgs.qunarzz.com/piao/fusion/1803/b6/37560ece9c62b502.png',
-        desc: '珠江夜游'
-      }, {
-        id: '0007',
-        imgUrl:
-          'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20209/c4c5c620f20535ff358788a508c20921.png',
-        desc: '双菊花'
-      }, {
-        id: '0008',
-        imgUrl:
-          'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20209/557ba25df01d7dbf1419b095a11d1319.png',
-        desc: '主题乐园'
-      }, {
-        id: '0009',
-        imgUrl:
-          'https://imgs.qunarzz.com/piao/fusion/1803/b6/37560ece9c62b502.png',
-        desc: '泡温泉'
-      }]
+      swiperOptions: {
+        autoplay: false
+      }
     }
   },
   computed: {
     // 对数据进行分页
     pages () {
       const pages = []
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         // 下标除以单页总数，对数值进行向下取整
         const page = Math.floor(index / 8)
         // 如果不存在则创建一个空数组，用于存放数据

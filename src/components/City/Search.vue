@@ -5,7 +5,7 @@
     </div>
     <div class='search-content' ref="search" v-show="keyword">
       <ul>
-        <li class="search-item border-bottom" v-for="item of list" :key='item.id'>
+        <li class="search-item border-bottom" v-for="item of list" :key='item.id' @click="handleChangeCity(item.name)">
           {{item.name}}
         </li>
         <li v-show="hasList" class="search-item border-bottom">没有找到匹配数据</li>
@@ -32,6 +32,12 @@ export default {
   computed: {
     hasList () {
       return !this.list.length
+    }
+  },
+  methods: {
+    handleChangeCity (city) {
+      this.$store.dispatch('changeCity', city)
+      this.$router.push('/')
     }
   },
   watch: {

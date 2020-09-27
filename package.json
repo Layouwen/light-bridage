@@ -11,7 +11,6 @@
     "axios": "^0.20.0",
     "better-scroll": "^2.0.4",
     "core-js": "^3.6.5",
-    "fastclick": "^1.0.6",
     "stylus": "^0.54.8",
     "stylus-loader": "^3.0.2",
     "vue": "^2.6.11",

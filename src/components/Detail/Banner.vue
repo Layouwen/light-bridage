@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class='banner'>
+    <div class='banner' @click="handleBannerClick">
       <img class="banner-img"
            src="http://img1.qunarzz.com/sight/p0/1809/56/5639ccfd58c4cca4a3.img.png_600x330_44844fd9.png" alt="">
       <div class="banner-info">
@@ -11,7 +11,7 @@
         </div>
       </div>
     </div>
-    <CommonGallery :imgs="imgs"></CommonGallery>
+    <CommonGallery :imgs="imgs" v-show="showGallery" @close="handleGalleryClick"></CommonGallery>
   </div>
 </template>
 
@@ -23,8 +23,17 @@ export default {
   components: { CommonGallery },
   data () {
     return {
+      showGallery: false,
       imgs: ['http://img1.qunarzz.com/sight/p0/1907/90/903428cd6de6a2c1a3.img.jpg_r_800x800_dc4abb35.jpg',
         'http://img1.qunarzz.com/sight/p0/1907/fa/faf812e0abc7cc95a3.img.jpg_r_800x800_55fc749a.jpg']
+    }
+  },
+  methods: {
+    handleBannerClick () {
+      this.showGallery = true
+    },
+    handleGalleryClick () {
+      this.showGallery = false
     }
   }
 }

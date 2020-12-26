@@ -10,7 +10,7 @@
   "dependencies": {
     "axios": "^0.20.0",
     "babel-polyfill": "^6.26.0",
-    "better-scroll": "^2.0.4",
+    "better-scroll": "^1.8.1",
     "core-js": "^3.6.5",
     "stylus": "^0.54.8",
     "stylus-loader": "^3.0.2",

@@ -54,16 +54,14 @@ export default {
     ...mapActions(['changeCity'])
   },
   mounted () {
-    this.$nextTick(() => {
-      this.scroll = new Bscroll(this.$refs.wrapper, {
-        click: true
-      })
+    this.scroll = new Bscroll(this.$refs.wrapper, {
+      click: true
     })
   },
   watch: {
     letter () {
       if (this.letter) {
-        const element = this.$refs[this.letter][0]
+        const element = this.$refs[this.letter.trim()][0]
         this.scroll.scrollToElement(element)
       }
     }

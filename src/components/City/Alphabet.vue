@@ -17,15 +17,12 @@
 <script>
 export default {
   name: 'CityAlphabet',
-  props: {
-    cities: Object
-  },
+  props: { cities: Object },
   computed: {
+    // 生成列表
     letters () {
       const letters = []
-      for (const i in this.cities) {
-        letters.push(i)
-      }
+      for (const i in this.cities) letters.push(i)
       return letters
     }
   },
@@ -37,6 +34,7 @@ export default {
     }
   },
   updated () {
+    // 移动到A的位置
     this.startY = this.$refs.A[0].offsetTop
   },
   methods: {
@@ -46,6 +44,7 @@ export default {
     handleTouchStart () {
       this.touchStatus = true
     },
+    // 滑动主要逻辑
     handleTouchMove (e) {
       if (this.touchStatus) {
         if (this.timer) { clearTimeout(this.timer) }

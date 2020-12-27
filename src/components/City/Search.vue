@@ -6,7 +6,7 @@
     <div class='search-content' ref="search" v-show="keyword">
       <ul>
         <li class="search-item border-bottom" v-for="item of list" :key='item.id' @click="handleChangeCity(item.name)">
-          {{item.name}}
+          {{ item.name }}
         </li>
         <li v-show="hasList" class="search-item border-bottom">没有找到匹配数据</li>
       </ul>
@@ -17,12 +17,9 @@
 <script>
 import Bscroll from 'better-scroll'
 import { mapMutations } from 'vuex'
-
 export default {
   name: 'CitySearch',
-  props: {
-    cities: Object
-  },
+  props: { cities: Object },
   data () {
     return {
       keyword: '',
@@ -30,11 +27,7 @@ export default {
       timer: null
     }
   },
-  computed: {
-    hasList () {
-      return !this.list.length
-    }
-  },
+  computed: { hasList () { return !this.list.length } },
   methods: {
     ...mapMutations(['changeCity']),
     handleChangeCity (city) {
@@ -44,17 +37,19 @@ export default {
   },
   watch: {
     keyword () {
-      if (this.timer) {
-        clearTimeout(this.timer)
-      }
+      if (this.timer) clearTimeout(this.timer)
       if (!this.keyword) {
         this.list = []
         return
       }
       this.timer = setTimeout(() => {
+        // 空结果
         const result = []
+        // 遍历所有地址的字母
         for (const i in this.cities) {
-          this.cities[i].forEach((value) => {
+          // 遍历对应字母的城市
+          this.cities[i].forEach(value => {
+            // 判断输入的拼音是否包含在spell中 或者 中文是否包含在name中
             if (value.spell.indexOf(this.keyword) > -1 || value.name.indexOf(this.keyword) > -1) {
               result.push(value)
             }
@@ -64,11 +59,7 @@ export default {
       }, 100)
     }
   },
-  mounted () {
-    this.$nextTick(() => {
-      this.scroll = new Bscroll(this.$refs.search, { click: true })
-    })
-  }
+  mounted () { this.scroll = new Bscroll(this.$refs.search, { click: true }) }
 }
 </script>
 

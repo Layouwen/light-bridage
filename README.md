@@ -1,24 +1,34 @@
-# light-bridage
+## 轻旅项目说明
 
-## Project setup
-```
-yarn install
-```
+### 运行
 
-### Compiles and hot-reloads for development
-```
+```bash
 yarn serve
 ```
 
-### Compiles and minifies for production
-```
+### 打包
+
+```bash
 yarn build
 ```
 
-### Lints and fixes files
-```
-yarn lint
-```
+### 文件结构
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+public/mock —— mock的数据
+
+src  
+---- assets/style —— 公共样式  
+-------- iconfont —— 字体图标  
+-------- border.css —— 伪元素边框样式  
+-------- mixins.styl —— 需要混入的样式  
+-------- reset.css —— 适合手机端的样式  
+-------- varibles.styl —— 全局变量样式  
+---- common —— 通用组件  
+-------- Fade/Fade.vue —— 透明渐变动画  
+-------- Gallery/Gallery.vue —— 图片预览  
+---- components  
+-------- City —— 城市组件  
+------------ Alphabet.vue —— 字母导航  
+------------ Header.vue —— 顶部  
+------------ List.vue —— 地址列表  
+

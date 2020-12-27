@@ -1,9 +1,9 @@
 <template>
   <div>
-    <CityHeader></CityHeader>
-    <CitySearch :cities="cities"></CitySearch>
-    <CityList :cities="cities" :hot="hotCities" :letter="letter"></CityList>
-    <CityAlphabet :cities="cities" @change="handleLetterChange"></CityAlphabet>
+    <CityHeader />
+    <CitySearch :cities="cities" />
+    <CityList :cities="cities" :hot="hotCities" :letter="letter" />
+    <CityAlphabet :cities="cities" @change="handleLetterChange" />
   </div>
 </template>
 
@@ -25,9 +25,7 @@ export default {
     }
   },
   methods: {
-    getCityInfo () {
-      axios.get('/api/city.json').then(this.handleGetCityInfoSucc)
-    },
+    getCityInfo () { axios.get('/api/city.json').then(this.handleGetCityInfoSucc) },
     handleGetCityInfoSucc (res) {
       res = res.data
       if (res.ret && res.data) {
@@ -36,16 +34,8 @@ export default {
         this.hotCities = data.hotCities
       }
     },
-    handleLetterChange (letter) {
-      this.letter = letter
-    }
+    handleLetterChange (letter) { this.letter = letter }
   },
-  mounted () {
-    this.getCityInfo()
-  }
+  mounted () { this.getCityInfo() }
 }
 </script>
-
-<style lang="stylus" scoped>
-
-</style>

@@ -1,5 +1,6 @@
 const path = require('path')
 
+// 路径拼接函数
 function resolve (dir) {
   return path.join(__dirname, dir)
 }

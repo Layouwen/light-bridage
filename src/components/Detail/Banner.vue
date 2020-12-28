@@ -1,7 +1,9 @@
 <template>
   <div>
+    <!-- 点击打开图片预览 -->
     <div class='banner' @click="handleBannerClick">
-      <img class="banner-img" :src="bannerImg" />
+      <img class="banner-img" :src="bannerImg" alt='' />
+      <!-- 底部文字 -->
       <div class="banner-info">
         <div class="banner-title"> {{ this.sightName }}</div>
         <div class='banner-number'>
@@ -10,6 +12,7 @@
         </div>
       </div>
     </div>
+    <!-- 打开的预览组件 -->
     <Fade>
       <CommonGallery :imgs="bannerImgs" v-show="showGallery" @close="handleGalleryClick"></CommonGallery>
     </Fade>
@@ -19,10 +22,12 @@
 <script>
 import Fade from 'common/Fade/Fade'
 import CommonGallery from 'common/Gallery/Gallery'
-
 export default {
   name: 'DetailBanner',
-  components: { Fade, CommonGallery },
+  components: {
+    Fade,
+    CommonGallery
+  },
   props: {
     sightName: String,
     bannerImg: String,
@@ -30,13 +35,16 @@ export default {
   },
   data () {
     return {
+      // 标记是否显示图片预览
       showGallery: false
     }
   },
   methods: {
+    // 显示图片预览
     handleBannerClick () {
       this.showGallery = true
     },
+    // 关闭图片预览
     handleGalleryClick () {
       this.showGallery = false
     }

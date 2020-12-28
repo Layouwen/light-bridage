@@ -31,7 +31,7 @@ export default {
   props: {
     sightName: String,
     bannerImg: String,
-    bannerImgs: String
+    bannerImgs: Array
   },
   data () {
     return {

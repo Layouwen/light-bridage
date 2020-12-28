@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- 循环遍历每一行 -->
     <div
       class="item"
       v-for="(item, index) of list"
@@ -9,7 +10,9 @@
         <span class="item-title-icon"></span>
         {{ item.title }}
       </div>
+      <!-- 判断 List 是否还有子组件，有的话继续遍历 -->
       <div v-if="item.children" class="item-children">
+        <!-- 递归 -->
         <DetailList :list="item.children"></DetailList>
       </div>
     </div>
@@ -19,6 +22,7 @@
 <script>
 export default {
   name: 'DetailList',
+  // 接收外部的数组
   props: {
     list: Array
   }

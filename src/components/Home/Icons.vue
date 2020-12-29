@@ -1,13 +1,14 @@
 <template>
   <div class="icons">
     <swiper :options="swiperOptions">
+      <!-- 遍历分组好的数组 -->
       <swiper-slide v-for="(page, index) of pages" :key="index">
+        <!-- 对组内的数据进行遍历 -->
         <div class="icon" v-for="item of page" :key="item.id">
           <div class="icon-img">
-            <img class="icon-img-content" alt
-                 :src="item.imgUrl"/>
+            <img class="icon-img-content" alt="" :src="item.imgUrl" />
           </div>
-          <p class="icon-desc">{{item.desc}}</p>
+          <p class="icon-desc">{{ item.desc }}</p>
         </div>
       </swiper-slide>
     </swiper>
@@ -17,14 +18,10 @@
 <script>
 export default {
   name: 'HomeIcons',
-  props: {
-    list: Array
-  },
+  props: { list: Array },
   data () {
     return {
-      swiperOptions: {
-        autoplay: false
-      }
+      swiperOptions: { autoplay: false }
     }
   },
   computed: {
@@ -35,9 +32,7 @@ export default {
         // 下标除以单页总数，对数值进行向下取整
         const page = Math.floor(index / 8)
         // 如果不存在则创建一个空数组，用于存放数据
-        if (!pages[page]) {
-          pages[page] = []
-        }
+        if (!pages[page]) { pages[page] = [] }
         // 将item添加到对应页数的数组中
         pages[page].push(item)
       })

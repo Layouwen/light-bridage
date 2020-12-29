@@ -4,11 +4,11 @@
     <ul>
       <li class="item border-bottom" v-for="item of list" :key="item.id"> <!-- 添加border-bottom一像素边框解决方案 -->
         <div class="item-img-wrapper">
-          <img :src="item.imgUrl" alt="" class="item-img"/>
+          <img :src="item.imgUrl" alt="" class="item-img" />
         </div>
         <div class="item-info">
-          <p class="item-title">{{item.title}}</p>
-          <p class="item-desc">{{item.desc}}</p>
+          <p class="item-title">{{ item.title }}</p>
+          <p class="item-desc">{{ item.desc }}</p>
         </div>
       </li>
     </ul>
@@ -18,12 +18,7 @@
 <script>
 export default {
   name: 'HomeWeekend',
-  props: {
-    list: Array
-  },
-  data () {
-    return {}
-  }
+  props: { list: Array }
 }
 </script>
 

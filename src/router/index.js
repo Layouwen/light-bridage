@@ -6,6 +6,10 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    redirect: '/home'
+  },
+  {
+    path: '/home',
     name: 'Home',
     component: () => import('views/Home')
   },
@@ -17,13 +21,22 @@ const routes = [
     path: '/detail/:id',
     name: 'Detail',
     component: () => import('views/Detail')
+  },
+  {
+    path: '*',
+    name: 'notFound',
+    redirect: '/home'
   }
 ]
 
 const router = new VueRouter({
   routes,
+  // 切换页面自动滚动到顶部
   scrollBehavior (to, from, savedPosition) {
-    return { x: 0, y: 0 }
+    return {
+      x: 0,
+      y: 0
+    }
   }
 })
 

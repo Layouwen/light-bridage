@@ -1,9 +1,9 @@
 <template>
   <div class='wrapper'>
+    <!-- 如果轮播有数据就显示 -->
     <swiper :options="swiperOptions" v-if="showSwiper">
       <swiper-slide v-for='item of list' :key='item.id'>
-        <img class='swiper-img'
-             :src='item.imgUrl' alt=''/>
+        <img class='swiper-img' :src='item.imgUrl' alt='' />
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
@@ -13,9 +13,7 @@
 <script>
 export default {
   name: 'HomeSwiper',
-  props: {
-    list: Array
-  },
+  props: { list: Array },
   data () {
     return {
       swiperOptions: {
@@ -25,9 +23,7 @@ export default {
     }
   },
   computed: {
-    showSwiper () {
-      return this.list.length
-    }
+    showSwiper () { return this.list.length }
   }
 }
 </script>

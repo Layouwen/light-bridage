@@ -3,12 +3,11 @@
     <div class="title">热销推荐</div>
     <ul>
       <router-link tag="li" class="item border-bottom" v-for="item of list" :key="item.id" :to="'/detail/'+item.id">
-        <!-- 添加border-bottom 一像素边框解决方案 -->
-        <img :src="item.imgUrl" alt=""
-             class="item-img"/>
+        <!-- 添加 border-bottom 一像素边框解决方案 -->
+        <img :src="item.imgUrl" alt="" class="item-img" />
         <div class="item-info">
-          <p class="item-title">{{item.title}}</p>
-          <p class="item-desc">{{item.desc}}</p>
+          <p class="item-title">{{ item.title }}</p>
+          <p class="item-desc">{{ item.desc }}</p>
           <button class="item-button">查看详情</button>
         </div>
       </router-link>
@@ -19,9 +18,7 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  props: {
-    list: Array
-  }
+  props: { list: Array }
 }
 </script>
 
